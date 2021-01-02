@@ -6,6 +6,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringEncoder;
+import org.I0Itec.zkclient.ZkClient;
+import org.apache.zookeeper.server.ZKDatabase;
 
 /**
  * @author hgvgh
@@ -40,5 +42,18 @@ public class UserServiceImpl implements UserService {
         });
     serverBootstrap.bind(hostName, port);
     System.out.println("server start in port:" + port);
+
+    //将节点IP和端口注册到ZK上
+    binIpAndPortToZk(hostName, port);
+  }
+
+  private static void binIpAndPortToZk(String hostName, int port) {
+    ZkClient zkClient = new ZkClient(ZkConstant.ZK_SERVER_STR);
+    //创建一个临时节点，节点名称：IP-端口号
+    if(! zkClient.exists(ZkConstant.RPC_PARENT_NODE_NAME + "/" + hostName + "-" + port)) {
+      zkClient.createEphemeral( ZkConstant.RPC_PARENT_NODE_NAME + "/" + hostName + "-" + port);
+    }
+
+    System.out.println(" create zk node in zk, node name :" + ZkConstant.RPC_PARENT_NODE_NAME + "/" + hostName + "-" + port);
   }
 }

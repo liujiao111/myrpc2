@@ -7,10 +7,13 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
+import org.I0Itec.zkclient.IZkChildListener;
+import org.I0Itec.zkclient.ZkClient;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,31 +37,60 @@ public class RpcConsumer {
   public static void initClient() throws InterruptedException {
     //1) 初始化UserClientHandler
     userClientHandler  = new UserClientHandler();
+
+    //从ZK服务器上获取服务端IP端口列表
+    ZkClient zkClient = new ZkClient(ZkConstant.ZK_SERVER_STR);
+    List<String> children = zkClient.getChildren(ZkConstant.RPC_PARENT_NODE_NAME);
+
+    //根据ZK中存储的服务端节点列表启动RPC服务端连接
+    startServerByZkNodeList(children);
+
+    //注册该节点监听，如果下面的子节点列表发生变化，则重新进行服务端连接
+    zkClient.subscribeChildChanges(ZkConstant.RPC_PARENT_NODE_NAME, new IZkChildListener() {
+      public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
+        System.out.println("检测到有子节点发生改变，重新获取子节点列表");
+        startServerByZkNodeList(currentChilds);
+      }
+    });
+  }
+
+  /**
+   * 根据ZK中存储的服务端节点列表启动RPC服务端连接
+   * @param children
+   */
+  private static Bootstrap startServerByZkNodeList(List<String> children) throws InterruptedException {
+    System.out.println(children);
+    userClientHandler = new UserClientHandler();
+    Bootstrap bootstrap = new Bootstrap();
     //2)创建连接池对象
     EventLoopGroup group = new NioEventLoopGroup();
     //3)创建客户端的引导对象
-    Bootstrap bootstrap =  new Bootstrap();
     //4)配置启动引导对象
     bootstrap.group(group)
-        //设置通道为NIO
-        .channel(NioSocketChannel.class)
-        //设置请求协议为TCP
-        .option(ChannelOption.TCP_NODELAY,true)
-        //监听channel 并初始化
-        .handler(new ChannelInitializer<SocketChannel>() {
-          protected void initChannel(SocketChannel socketChannel) throws Exception {
-            //获取ChannelPipeline
-            ChannelPipeline pipeline = socketChannel.pipeline();
-            //设置编码
-            pipeline.addLast(new StringDecoder());
-            pipeline.addLast(new RpcEncoder(RpcRequest.class, new JSONSerializer()));
-            //添加自定义事件处理器
-            pipeline.addLast(userClientHandler);
-          }
-        });
-
-    //5)连接服务端
-    bootstrap.connect("127.0.0.1",8999).sync();
+            //设置通道为NIO
+            .channel(NioSocketChannel.class)
+            //设置请求协议为TCP
+            .option(ChannelOption.TCP_NODELAY,true)
+            //监听channel 并初始化
+            .handler(new ChannelInitializer<SocketChannel>() {
+              protected void initChannel(SocketChannel socketChannel) throws Exception {
+                //获取ChannelPipeline
+                ChannelPipeline pipeline = socketChannel.pipeline();
+                //设置编码
+                pipeline.addLast(new StringDecoder());
+                pipeline.addLast(new RpcEncoder(RpcRequest.class, new JSONSerializer()));
+                //添加自定义事件处理器
+                pipeline.addLast(userClientHandler);
+              }
+            });
+    for (String child : children) {
+      //子节点名称格式：ip-port
+      String ip = child.split("-")[0];
+      String port = child.split("-")[1];
+      bootstrap.connect(ip, Integer.parseInt(port)).sync();
+      System.out.println("绑定了>..." + ip + port);
+    }
+    return bootstrap;
   }
 
   //4.编写一个方法,使用JDK的动态代理创建对象
