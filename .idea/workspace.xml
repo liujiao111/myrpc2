@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c7b27f4-5059-4884-b0a8-ef50b9dc128c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\software\apache-maven-3.6.3\repo" />
+        <option name="mavenHome" value="D:/software/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\software\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1mI55PzishLRZG95v52mKm0BPzZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/heyichong/code/ebicyclesystem" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager" selected="Application.ClientBoostrap">
+    <configuration name="ClientBoostrap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientBoostrap" />
+      <module name="rpc-client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerBootstrap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerBootstrap" />
+      <module name="rpc-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ClientBoostrap" />
+        <item itemvalue="Application.ServerBootstrap" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c7b27f4-5059-4884-b0a8-ef50b9dc128c" name="Default Changelist" comment="" />
+      <created>1609168080251</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609168080251</updated>
+      <workItem from="1609168108997" duration="2105000" />
+      <workItem from="1609477984970" duration="5141000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="455" height="582" key="DebuggerActiveHint" timestamp="1609478222719">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="455" height="582" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1609478222719" />
+    <state x="623" y="140" key="FileChooserDialogImpl" timestamp="1609400834834">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="498" y="111" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609168147707" />
+    <state x="623" y="140" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609400834834" />
+    <state width="1480" height="365" key="GridCell.Tab.0.bottom" timestamp="1609485289684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="365" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609485289684" />
+    <state width="1480" height="123" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609400838167" />
+    <state width="1480" height="365" key="GridCell.Tab.0.center" timestamp="1609485289684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="365" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609485289684" />
+    <state width="1480" height="123" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609400838167" />
+    <state width="1480" height="365" key="GridCell.Tab.0.left" timestamp="1609485289684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="365" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609485289684" />
+    <state width="1480" height="123" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609400838167" />
+    <state width="1480" height="365" key="GridCell.Tab.0.right" timestamp="1609485289684">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="365" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609485289684" />
+    <state width="1480" height="123" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609400838167" />
+    <state width="1480" height="251" key="GridCell.Tab.1.bottom" timestamp="1609480124585">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="251" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609480124585" />
+    <state width="1480" height="251" key="GridCell.Tab.1.center" timestamp="1609480124585">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="251" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609480124585" />
+    <state width="1480" height="251" key="GridCell.Tab.1.left" timestamp="1609480124585">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="251" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609480124585" />
+    <state width="1480" height="251" key="GridCell.Tab.1.right" timestamp="1609480124585">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1480" height="251" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609480124585" />
+    <state x="153" y="0" key="SettingsEditor" timestamp="1609168151619">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="153" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609168151619" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc-client/src/main/java/RpcConsumer.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc-client/src/main/java/RpcConsumer.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc-server/src/main/java/ServerBootstrap.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
