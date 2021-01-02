@@ -14,6 +14,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -83,15 +84,16 @@ public class RpcConsumer {
                 pipeline.addLast(userClientHandler);
               }
             });
-    for (String child : children) {
-      //子节点名称格式：ip-port
-      String ip = child.split("-")[0];
-      String port = child.split("-")[1];
-      bootstrap.connect(ip, Integer.parseInt(port)).sync();
-      System.out.println("绑定了>..." + ip + port);
-    }
+    //随机选择一台服务器进行绑定
+    int i = new Random().nextInt(children.size());
+    String randomServerStr = children.get(i);
+    String ip = randomServerStr.split("-")[0];
+    String port = randomServerStr.split("-")[1];
+    bootstrap.connect(ip, Integer.parseInt(port)).sync();
+    System.out.println("绑定了>..." + ip + port);
     return bootstrap;
   }
+
 
   //4.编写一个方法,使用JDK的动态代理创建对象
   // serviceClass 接口类型,根据哪个接口生成子类代理对象
